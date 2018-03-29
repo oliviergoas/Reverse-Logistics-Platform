@@ -1,0 +1,109 @@
+<div class="row">
+    <div class="col-lg-1 col-sm-12"></div>
+    <div class="col-lg-1 col-sm-12"></div>
+    <div class="col-lg-1 col-sm-12"></div>
+    <div class="col-lg-6 col-sm-12">
+        <div id="formulaire" class="container text-center">
+            <h2 class="text-center">Inscription</h2>
+
+            <form action="../controleur/creation.php" method="post" class="text-center">
+
+                <div class="text-center">
+                    <input id="radioChercheur" class="w3-radio" type="radio" name="type" value="chercheur">
+                    <label>Chercheur</label>
+                    <input id="radioEntreprise" class="w3-radio" type="radio" name="type" value="entreprise">
+                    <label>Entreprise</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="Nom" class="form-control" placeholder="Prénom">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="Prenom" class="form-control" placeholder="Nom">
+                </div>
+
+                <div class="form-group">
+                    <input type="email" name="Email" class="form-control" placeholder="Email">
+                </div>
+
+                <div class="form-group">
+                    <input type="password" name="MotDePasse" class="form-control" placeholder="Mot de passe">
+                </div>
+
+                <div class="form-group">
+                    <input id="chercheur" type="number" name="IdC" class="form-control" placeholder="Identifiant chercheur">
+                </div>
+                <div class="form-group">
+                    <input id="entreprise1" name="SIREN" type="number" class="form-control" placeholder="SIREN">
+                </div>
+                <div class="form-group">
+                    <input id="entreprise2" name="NomE" type="text" class="form-control" placeholder="Nom entreprise">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" name="Description" placeholder="Description" cols="10"
+                              rows="8"></textarea>
+                </div>
+                <br/>
+                <!--<div class="form-group">-->
+                    <!--<img id="profileImage" src="octocat.png" class="img-rounded" alt="Photo de profil"-->
+                         <!--style="max-width: 70%;">-->
+                <!--</div>-->
+                <div class="form-group">
+                    <p id="messageinscription"><?php echo $_GET['messageins']; ?></p>
+                    <button type="submit" class="w3-button w3-white w3-hover-orange">Valider</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-lg-1 col-sm-12"></div>
+    <div class="col-lg-1 col-sm-12"></div>
+    <div class="col-lg-1 col-sm-12"></div>
+</div>
+<script>
+//    var connexion = document.getElementById('connexion');
+//    connexion.onclick = function () {
+//        document.getElementById("modalConnexion").style.visibility = "visible";
+//        document.getElementById("options").style.visibility = "hidden";
+//    };
+    /*var input = document.getElementById("input");
+    input.addEventListener('keyup',function(){
+        alert(input.value);
+    });*/
+    //var etudiant = document.getElementById("radioEtudiant");
+    let entreprise = document.getElementById("radioEntreprise");
+    let chercheur = document.getElementById("radioChercheur");
+    /*etudiant.onclick = function(){
+        document.getElementById('etudiant').style.display = 'block';
+        document.getElementById('chercheur').style.display = 'none';
+        document.getElementById('entreprise1').style.display = 'none';
+        document.getElementById('entreprise2').style.display = 'none';
+        entreprise.checked = false;
+        chercheur.checked = false;
+        etudiant.checked = true;
+        document.getElementById("flex-container").style.backgroundColor = red;
+        //alert("coucou");
+    }*/
+    chercheur.onchange = function () {
+        //document.getElementById('etudiant').style.display = 'none';
+        document.getElementById('chercheur').style.display = 'block';
+        document.getElementById('entreprise1').style.display = 'none';
+        document.getElementById('entreprise2').style.display = 'none';
+        entreprise.checked = false;
+        chercheur.checked = true;
+        //etudiant.checked = false;
+        document.getElementById("flex-container").style.backgroundColor = red;
+    };
+    entreprise.onchange = function () {
+        //document.getElementById('etudiant').style.display = 'none';
+        document.getElementById('chercheur').style.display = 'none';
+        document.getElementById('entreprise1').style.display = 'block';
+        document.getElementById('entreprise2').style.display = 'block';
+        entreprise.checked = true;
+        chercheur.checked = false;
+        //etudiant.checked = false;
+        document.getElementById("flex-container").style.backgroundColor = red;
+    };
+</script>
+</body>
+</html>
